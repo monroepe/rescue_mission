@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answer = Answer.new
   end
 
   def create
@@ -17,7 +18,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to '/questions/new'}
+        format.html { redirect_to @question}
       else
         format.html { render action: 'new' }
       end

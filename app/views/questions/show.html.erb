@@ -2,5 +2,32 @@
 
 <p><%= @question.description %></p>
 
+
+
+<h3>Answers</h3>
+<%= form_for [@question, @answer], html: {class: "input_form"} do |f| %>
+
+  <% if @answer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@answer.errors.count, "error") %> prohibited
+      this answer from being posted:</h2>
+    <ul>
+    <% @answer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+  <%= f.label :answer %><br />
+  <%= f.text_area :description, size: "60x12" %>
+  </p>
+
+  <p>
+  <%= f.submit "Create" %>
+  </p>
+<% end %>
+
 <%= link_to "Back", questions_path %>
 <br />
