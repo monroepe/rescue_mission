@@ -1,0 +1,7 @@
+<h1>Pose a question</h1>
+
+<%= form_for @question, url: {action: "create"}, html: {class: "question_form"} do |f| %>
+  <%= f.string :title %>
+  <%= f.text_area :decription, size: "60x12" %>
+  <%= f.submit "Create" %>
+<% end %>
