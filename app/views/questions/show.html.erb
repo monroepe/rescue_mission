@@ -5,6 +5,20 @@
 
 
 <h3>Answers</h3>
+
+  <ul>
+    <% @answers.each do |answer| %>
+    <li>
+    <%= answer.description %>
+    </li>
+    <%end%>
+  </ul>
+
+
+
+
+
+<h3>Submit Answer</h3>
 <%= form_for [@question, @answer], html: {class: "input_form"} do |f| %>
 
   <% if @answer.errors.any? %>

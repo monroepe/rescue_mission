@@ -1,4 +1,3 @@
-require 'pry'
 class QuestionsController < ApplicationController
   def index
     @questions = Question.order(created_at: :desc)
@@ -10,6 +9,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answers = @question.answers.order(created_at: :desc)
     @answer = Answer.new
   end
 
