@@ -1,11 +1,10 @@
-<h1>Pose a question</h1>
+<h1>Editing question</h1>
 
-<%= form_for @question, url: {action: "create"}, html: {class: "input_form"} do |f| %>
-
+<%= form_for :question, url: question_path(@question), method: :patch do |f| %>
   <% if @question.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@question.errors.count, "error") %> prohibited
-      this question from being posed:</h2>
+      this question from being saved:</h2>
     <ul>
     <% @question.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -13,24 +12,20 @@
     </ul>
   </div>
   <% end %>
-
   <p>
-  <%= f.label :title %><br />
-  <%= f.text_field :title, size: "50x10" %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, size: "50x10" %>
   </p>
 
   <p>
-  <%= f.label :description %><br />
-  <%= f.text_area :description, size: "60x12" %>
+    <%= f.label :description %><br>
+    <%= f.text_area :description, size: "60x12" %>
   </p>
 
   <p>
-  <%= f.submit "Create" %>
+    <%= f.submit %>
   </p>
 <% end %>
 
-<br />
 <%= link_to 'Back', questions_path %>
 <br />
-
-
