@@ -27,4 +27,4 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'pry'
-
+gem 'redcarpet'
