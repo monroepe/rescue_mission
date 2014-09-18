@@ -8,6 +8,13 @@
 </head>
 <body>
 
+    <% if user_signed_in? %>
+      <p><img style= "border-radius: 60px; width: 60px" src="<%= current_user.avatar_url %>">
+      <%= link_to 'Sign Out', "/sign_out" %></p>
+    <% else %>
+      <li><%= link_to 'Log in with Facebook', '/auth/facebook' %></li>
+    <% end %>
+
 <%= yield %>
 
 <br />
